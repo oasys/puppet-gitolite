@@ -14,7 +14,7 @@ class gitolite (
   $package_ensure      = $gitolite::params::package_ensure,
   $package_name        = $gitolite::params::package_name,
   $repo_specific_hooks = $gitolite::params::repo_specific_hooks,
-  $umask               = $gitolite::params::umask,
+  String $umask        = $gitolite::params::umask,
   $user_name           = $gitolite::params::user_name,
   $version             = $gitolite::params::version,
 ) inherits gitolite::params {
@@ -72,7 +72,7 @@ class gitolite (
   validate_string($package_ensure)
   validate_string($package_name)
   validate_bool($repo_specific_hooks_bool)
-  validate_re("$umask", '^0[0-7][0-7][0-7]$')
+  validate_re($umask, '^0[0-7][0-7][0-7]$')
   validate_string($user_name)
   validate_re($version, ['2', '3'])
 
