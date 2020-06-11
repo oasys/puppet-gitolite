@@ -72,7 +72,7 @@ class gitolite (
   validate_string($package_ensure)
   validate_string($package_name)
   validate_bool($repo_specific_hooks_bool)
-  validate_re($umask, '^0[0-7][0-7][0-7]$')
+  validate_re("$umask", '^0[0-7][0-7][0-7]$')
   validate_string($user_name)
   validate_re($version, ['2', '3'])
 
